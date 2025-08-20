@@ -39,7 +39,7 @@ def failed_case_message(expected_output, real_output, func_name, arg, arg_name=T
 def grade_code(func):
     import pickle 
     try: 
-        with open("ADIA_M1/tests_" + func.__name__, "rb") as file:
+        with open("ADIA_M1_1/tests_" + func.__name__, "rb") as file:
             tests = pickle.load(file)
     except FileNotFoundError:
         return "The function name is not valid. Grading failed. "
@@ -47,7 +47,7 @@ def grade_code(func):
     max_score = tests[2]
 
     try: 
-        with open("ADIA_M1/" + func.__name__, "rb") as file:
+        with open("ADIA_M1_1/" + func.__name__, "rb") as file:
             expected_results = pickle.load(file)
     except FileNotFoundError:
         return "Function name not valid. Grading failed. "
@@ -283,13 +283,13 @@ def simulate_interaction(input_values, function, args={}):
 def grade_interactive_function(func):
     import pickle 
     try:
-        with open("ADIA_M1/tests_" + func.__name__, "rb") as file:
+        with open("ADIA_M1_1/tests_" + func.__name__, "rb") as file:
             test_inputs, args, max_score = pickle.load(file)
     except FileNotFoundError:
         return "The function name is not valid. Grading failed. "
 
     try: 
-        with open("ADIA_M1/" + func.__name__, "rb") as file:
+        with open("ADIA_M1_1/" + func.__name__, "rb") as file:
             exp_interactions = pickle.load(file)
     except FileNotFoundError:
         return "The function name is not valid. Grading failed. "
@@ -319,13 +319,13 @@ def grade_interactive_function_with_randomization(func):
     import pickle 
     import random
     try:
-        with open("ADIA_M1/tests_" + func.__name__, "rb") as file:
+        with open("ADIA_M1_1/tests_" + func.__name__, "rb") as file:
             test_inputs, args, max_score, seeds = pickle.load(file)
     except FileNotFoundError:
         return "The function name is not valid. Grading failed. "
 
     try: 
-        with open("ADIA_M1/" + func.__name__, "rb") as file:
+        with open("ADIA_M1_1/" + func.__name__, "rb") as file:
             exp_interactions = pickle.load(file)
     except FileNotFoundError:
         return "The function name is not valid. Grading failed. "
